@@ -34,7 +34,7 @@ function objToSql(ob){
 
 //check methods below
 var orm = {
-	all:function(tableInput, cb)/*check on cb*/{
+	all:function(tableInput, cb)/*cb means callback*/{
 		var queryString = 'SELECT * FROM' + tableInput + ';'
 		connection.query(queryString, function(err, results){
 			if(err){
