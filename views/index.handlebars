@@ -13,10 +13,10 @@
 	{{#unless devoured}}
 		<div>
 		<span>{{this.id}}
-		{{this.burger_name}}</span>
+			{{this.burger_name}}
+		</span>
 			<button>Devour it</button>
-		</div>
-		
+		</div>	
 	{{/unless}}
 	{{/each}}
 </ul>
@@ -24,9 +24,13 @@
 <h2>Burgers Devoured</h2>
 <ul>
 	{{#each burgers}}
-		{{!-- {{#if devoured}}
-			{{}}
-		{{/if}} --}}
+		{{#if devoured}}
+			<div>
+			<span>{{this.id}}
+				{{this.burger_name}}
+			</span>
+			</div>
+		{{/if}}
 	{{/each}}
 </ul>
 
@@ -36,7 +40,7 @@
 			<label for="bname">Enter Burger Name:</label>
 			<input type="text" id="bname" name="name">
 		</div>
-		<button type='submit'>Add a burger to eat, press submit</burger> 
+		<button type='submit'>Add a burger to eat, press here to submit</burger> 
 </form>
 
 
