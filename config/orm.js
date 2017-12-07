@@ -35,7 +35,8 @@ function objToSql(ob){
 //check methods below
 var orm = {
 	all:function(tableInput, cb)/*cb means callback*/{
-		var queryString = 'SELECT * FROM' + tableInput + ';'
+		var queryString = 'SELECT * FROM ' + tableInput + ';'
+		console.log("QUERY123: ", queryString);
 		connection.query(queryString, function(err, results){
 			if(err){
 				throw err;
@@ -44,7 +45,7 @@ var orm = {
 		});
 	},
 	create: function(table, cols, vals, cb) {
-		var queryString = "INSERT INTO" + table;
+		var queryString = "INSERT INTO " + table;
 
 		queryString += '(';
 		queryString += cols.toString();
@@ -63,7 +64,7 @@ var orm = {
 		});
 	},
 	update: function(table, objColVals, condition, cb){
-		var queryString = "UPDATE" + table;
+		var queryString = "UPDATE " + table;
 
 		queryString += 'SET';
 		queryString += objToSql(objColVals);
@@ -79,7 +80,7 @@ var orm = {
 		});
 	}, 
 	delete: function(table, condition, cb){
-		var queryString = 'DELETE FROM' + table;
+		var queryString = 'DELETE FROM ' + table;
 		queryString += 'WHERE';
 		queryString += condition;
 
