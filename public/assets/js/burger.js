@@ -7,3 +7,8 @@ $('#submit').click(function(e) {
 
 	return false;
 });
+
+$('#devour').click(function(e){
+	e.preventDefault();
+	
+})
