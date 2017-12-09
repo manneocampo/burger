@@ -1,60 +1,55 @@
 	<!--Setup the main.handlebars file so it's able to be used by Handlebars.-->
-	{{!-- <li>
-		{{name}}
-		<button class="change-status" data-id="{{id}}" data-newstatus={{devour}}"">Devour It --}}
-		{{!-- 	{{#if devour}}Devour it!{{/if}} --}}
-		{{!-- </button>
-	</li> --}}
+
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 text-center" id="top-section">
-				<h1>Eat Da Burger</h1>
+			<img src="/assets/img/animatedburger.png" alt="animated burger"/>
+		
+				<h1>Devour Burgers</h1>
 		</div>
 
-				<div class="col-xs-6 text-center" class="task">
-					<h2>Burgers to be Eaten</h2>
-					<div class="row">
-						{{#each burgers}}
-						{{#unless devoured}}
-							<div>
-							<span>{{this.id}}
-								{{this.burger_name}}
-							</span>	
-							</div>
-							<div>
-								<form method='POST' action='/api/burgers/update?_method=PUT' class='button-size'>
-									<input input type='hidden' type='text' name='id' value={{this.id}}><br>
-									<button type='submit' {{!-- id='devour'  --}}class='btn btn-default'>Devour it</button>
-								</form>
-							</div>	
-						{{/unless}}
-						{{/each}}
-					</div>
-				</div>
-				
-				<div class="col-xs-6 text-center" class="task">
-					<h2>Burgers Devoured</h2>
+		<div class="col-xs-6 text-center" class="task">
+			<div class="row">
+				<h2 class="title">Burgers to be Eaten</h2>
+				{{#each burgers}}
+				{{#unless devoured}}
+					<div class="text-center">
+						
+						{{this.burger_name}}
 					
-						{{#each burgers}}
-							{{#if devoured}}
-								<input class='form-control' type='text' placeholder='{{this.id}}.{{this.burger_name}}' readonly>	
-							{{/if}}
-						{{/each}}
-				</div>
-	</div>
-
+						<form method='POST' action='/api/burgers/update?_method=PUT' class='button-size'>
+							<input input type='hidden' type='text' name='id' value={{this.id}}><br>
+							<button class="addtltext" type='submit' {{!-- id='devour'  --}}class='btn btn-default'>Devour it</button>
+						</form>
+					</div>	
+				{{/unless}}
+				{{/each}}
+			</div>
+		</div>
 		
+		<div class="col-xs-6 text-center" class="task">
+			<h2 class="title">Burgers Devoured</h2>
+			
+				{{#each burgers}}
+					{{#if devoured}}
+						<input class='form-control text-center' type='text' placeholder='{{this.burger_name}}' readonly>	
+					{{/if}}
+				{{/each}}
+		</div>
+	</div>
+</div>
+
+<div class="container">	
 	<div class="row">
 		<div class="col-xs-12 text-center enter-section">
-			<h2>Add a Burger</h2>
+			<h2 class="title">Add a Burger</h2>
 			<form method='POST' action='/api/burgers' class='form-group'>
 					<div class='form-group'>
-						<label for='bname'>Enter Burger Name:</label>
+						<label class="addtltext" for='bname'>Enter Burger Name:</label>
 						<input type='text' id='bname' name='name'>
 					</div>
-					<button type='submit'>Add a burger to eat, press here to submit</burger> 
+					<button class="addtltext" type='submit'>Submit Added Burger</burger> 
 			</form>
 		</div>
-	</div>
-				
+	</div>			
 </div>

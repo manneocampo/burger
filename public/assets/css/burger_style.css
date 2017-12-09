@@ -1,3 +1,16 @@
-* {
+/** {
 	background-color: #ffffcc;
+}*/
+
+#top-section{
+	font-family: 'Press Start 2P', cursive; 
+}
+
+.title{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-style: bold;
+}
+
+.addtltext {
+	font-family: 'Electrolize', sans-serif;
 }

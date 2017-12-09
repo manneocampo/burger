@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-// override with POST having ?_method=DELETE
+// override with POST having ?_method=PUT
 app.use(methodOverride("_method"));
 
 var exphbs = require('express-handlebars');

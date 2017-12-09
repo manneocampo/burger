@@ -2,9 +2,7 @@
 // In the orm.js file, create the methods that will execute the necessary MySQL commands
 // in the controllers. These are the methods you will need to use in order to 
 //retrieve and store data in your database.
-// selectAll()
-// insertOne()
-// updateOne()
+//used all, create, update, delete for methods
 // Export the ORM object in module.exports.
 var connection = require('./connection.js');
 
@@ -32,7 +30,6 @@ function objToSql(ob){//need breakdown of this
 	return arr.toString();
 }
 
-//check methods below
 var orm = {
 	all:function(tableInput, cb)/*cb means callback*/{
 		var queryString = 'SELECT * FROM ' + tableInput + ';'
