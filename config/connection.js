@@ -9,13 +9,14 @@ var connection;
 
  if(process.env.JAWSDB_URL) {
  	connection = mysql.createConnection(process.env.JAWSDB_URL);
- }else{
+ } else {
  	connection = mysql.createConnection({
  	host: 'localhost',
 	user: 'root',
 	password: 'H8passwords1!',
 	database: 'burgers_db'
-}); 
+	}); 
+};
 
 //connect to database 
 connection.connect(function(err){
