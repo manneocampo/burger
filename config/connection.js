@@ -5,8 +5,13 @@ var mysql = require('mysql');
 
 
 //declare config for our db
-var connection = mysql.createConnection({
-	host: 'localhost',
+var connection;
+
+ if(process.env.JAWSDB_URL) {
+ 	connection = mysql.createConnection(process.env.JAWSDB_URL);
+ }else{
+ 	connection = mysql.createConnection({
+ 	host: 'localhost',
 	user: 'root',
 	password: 'H8passwords1!',
 	database: 'burgers_db'
