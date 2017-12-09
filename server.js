@@ -8,9 +8,12 @@ var port = 3000;
 var app = express();
 
 //serve static content for the app from the "public" directory in the application direc
-app.use(express.static('./public'));
+app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.urlencoded({extended: true}));
+
+// override with POST having ?_method=DELETE
+app.use(methodOverride("_method"));
 
 var exphbs = require('express-handlebars');
 

@@ -6,7 +6,7 @@
 // insertOne()
 // updateOne()
 // Export the ORM object in module.exports.
-var connection = require('../config/connection.js');
+var connection = require('./connection.js');
 
 function printQuestionMarks(num){
 	var arr = []; 
@@ -17,7 +17,7 @@ function printQuestionMarks(num){
 	return arr.toString();
 }
 
-function objToSql(ob){
+function objToSql(ob){//need breakdown of this
 	var arr = [];
 
 	for (var key in ob) {
@@ -54,7 +54,7 @@ var orm = {
 		queryString += printQuestionMarks(vals.length);
 		queryString += ')';
 
-		console.log(queryString);
+		console.log("create fn in orm:", queryString);
 
 		connection.query(queryString, vals, function(err, result){
 			if(err){
@@ -66,12 +66,12 @@ var orm = {
 	update: function(table, objColVals, condition, cb){
 		var queryString = 'UPDATE ' + table;
 
-		queryString += 'SET';
+		queryString += ' SET ';
 		queryString += objToSql(objColVals);
-		queryString += 'WHERE';
+		queryString += ' WHERE ';
 		queryString += condition;
 
-		console.log(queryString);
+		console.log("ORM Update fn", queryString);
 		connection.query(queryString, function(err, results){
 			if(err){
 				throw err;
@@ -81,7 +81,7 @@ var orm = {
 	}, 
 	delete: function(table, condition, cb){
 		var queryString = 'DELETE FROM ' + table;
-		queryString += 'WHERE';
+		queryString += ' WHERE ';
 		queryString += condition;
 
 		connection.query(queryString, function(err, result){

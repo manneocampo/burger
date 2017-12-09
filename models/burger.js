@@ -16,16 +16,18 @@ var burger = {
  			cb(res);
  		});
  	},
- 	update: function(objColVals, condition, cb) {
- 		orm.update('burgers', objColVals, condition, function(res){
- 			cb(res);
- 		});
- 	},
- 	delete: function(condition, cb){
- 		orm.delete('burgers', condition, function(res){
- 			cb(res);
- 		});
+ 	update: function(id, cb) {
+ 		var condition ='id=' + id;
+ 		orm.update('burgers', {
+ 			devoured: true
+ 		}, condition, cb);
  	}
+ 	// },
+ 	// delete: function(condition, cb){
+ 	// 	orm.delete('burgers', condition, function(res){
+ 	// 		cb(res);
+ 	// 	});
+ 	// }
  };
 
 //export database fns for the controller file

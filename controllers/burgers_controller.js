@@ -28,34 +28,40 @@ router.post('/api/burgers', function(req, res){
 	], [
 	req.body.name, false
 	], function(result){
-		//send back the ID of the new quote
+		//send back the ID of the new burger
 		burger.all(function(data){
 		var hbsObject = {
 			burgers:data
 		};
 		console.log(hbsObject);
 		res.render('index', hbsObject);
-	});
-	});
-});
-
-router.put('/api/burgers/:id', function(req, res){
-	var condition = 'id =' + req.params.id;
-
-	console.log('condition', condition);
-
-	burger.update({
-		devour: true//changed from req.body.devoured to true
-	}, condition, function(result){
-		if(result.changedRows == 0){
-			//if no rows were changed, then the ID must not exist, so 404
-		return res.status(404).end();			
-		}else{
-			res.status(200).end();
-		}
+		});
 	});
 });
 
+//put route back to index
+router.put('/api/burgers/update', function(req, res){
+
+	burger.update(req.body.id, function(result){
+		console.log("router.put", result);
+		res.redirect('/');
+	});
+	
+});
+
+	// var condition = 'id =' + req.params.id;
+
+	// console.log('condition', condition);
+// burger.update({
+	// 	devoured: true//changed from req.body.devoured to true, put devoured to match table in mysql
+	// }, condition, function(result){
+	// 	if(result.changedRows == 0){
+	// 		//if no rows were changed, then the ID must not exist, so 404
+	// 	return res.status(404).end();			
+	// 	}else{
+	// 		res.status(200).end();
+	// 	}
+	// });
 router.delete('/api/burgers/:id', function(req, res){
 	var condition = 'id =' + req.params.id;
 
