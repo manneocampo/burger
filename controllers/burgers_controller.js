@@ -49,19 +49,6 @@ router.put('/api/burgers/update', function(req, res){
 	
 });
 
-	// var condition = 'id =' + req.params.id;
-
-	// console.log('condition', condition);
-// burger.update({
-	// 	devoured: true//changed from req.body.devoured to true, put devoured to match table in mysql
-	// }, condition, function(result){
-	// 	if(result.changedRows == 0){
-	// 		//if no rows were changed, then the ID must not exist, so 404
-	// 	return res.status(404).end();			
-	// 	}else{
-	// 		res.status(200).end();
-	// 	}
-	// });
 router.delete('/api/burgers/:id', function(req, res){
 	var condition = 'id =' + req.params.id;
 
